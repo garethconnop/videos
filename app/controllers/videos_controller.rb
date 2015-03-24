@@ -1,20 +1,21 @@
 class VideosController < ApplicationController
   before_action :find_video, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
   	@videos = Video.all.order("created_at DESC")
   end
 
   def show
-  	@video = Video.find(params[:id])
+  	# @video = Video.find(params[:id])
   end
 
   def new
-  	@video = Video.new
+  	@video = current_user.videos.build
   end
 
   def create
-  	@video = Video.new(video_params)
+  	@video = current_user.videos.build(video_params)
 
   	if @video.save
   	  redirect_to @video
