@@ -3,6 +3,8 @@
 %p= @video.date
 %p= @video.description
 
+%p= @video.user.first_name
+
 = link_to "Edit", edit_video_path(@video)
 
 = link_to "Delete", video_path(@video), method: :delete, data: { confirm: "Are you sure?" }
