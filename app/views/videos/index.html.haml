@@ -1,1 +1,4 @@
-%h1 index page
+- @videos.each do |video|
+  %h2= link_to video.title, video
+
+= link_to "Add new video", new_video_path
