@@ -1,12 +1,13 @@
-%h1= @video.title
-%p= @video.length
-%p= @video.date
-%p= @video.description
+%section.video-section
+  %div.container.clearfix
+    %div.left
+      %div.video-container
+        %div.video-inner-container
+          %iframe{:allowfullscreen => "", :frameborder => "0", :height => "540", :mozallowfullscreen => "", :src => "#{@video.video_id}", :webkitallowfullscreen => "", :width => "960px"}
 
-%p= @video.user.first_name
+    %div.right
+      %h1= @video.title
+      %p.description= @video.description
 
-= link_to "Edit", edit_video_path(@video)
-
-= link_to "Delete", video_path(@video), method: :delete, data: { confirm: "Are you sure?" }
-
-= link_to "Home", root_path
+      = link_to "Edit", edit_video_path(@video), :class => "edit"
+      = link_to "Delete", video_path(@video), method: :delete, data: { confirm: "Are you sure?" }, :class => "delete"

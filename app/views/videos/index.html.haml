@@ -1,4 +1,19 @@
-- @videos.each do |video|
-  %h2= link_to video.title, video
+%section.video-index
+  %div.container.clearfix
 
-= link_to "Add new video", new_video_path
+    - @videos.each do |video|
+      %div.video-thumb
+      
+        / = link_to '', video, :style => "background-image: url(#{image_path "#{video.image.url}"});", :class => "video-image"
+          
+        = link_to video do
+          %div.video-image{ :style => "background-image: url(#{image_path "#{video.image.url}"})"}
+            %div.tint
+            %div.title-container
+              %div.title-inner
+                %h2= video.title
+        %p.length= video.length
+        %p.date= video.date
+        %p.description= video.description
+
+    = link_to "Add new video", new_video_path
