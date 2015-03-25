@@ -7,6 +7,7 @@ class VideosController < ApplicationController
   end
 
   def show
+    @comments = Comment.where(video_id: @video)
   end
 
   def new

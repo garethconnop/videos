@@ -11,3 +11,15 @@
 
       = link_to "Edit", edit_video_path(@video), :class => "edit"
       = link_to "Delete", video_path(@video), method: :delete, data: { confirm: "Are you sure?" }, :class => "delete"
+
+%div.container
+  %div#comment
+    %h2.comment_count= pluralize(@video.comments.count, "Comment")
+    - @comments.each do |comment|
+      .comment
+        %p.username= comment.user.first_name
+        %p.content= comment.content
+        = link_to "Edit", edit_video_comment_path(comment.video, comment)
+        = link_to "Delete", [comment.video, comment], method: :delete, data: { confirm: "Are you sure?" }
+
+    = render 'comments/form'
