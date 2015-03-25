@@ -1,19 +1,17 @@
 %section.video-index
-  %div.container.clearfix
-
-    - @videos.each do |video|
-      %div.video-thumb
-      
-        / = link_to '', video, :style => "background-image: url(#{image_path "#{video.image.url}"});", :class => "video-image"
-          
-        = link_to video do
-          %div.video-image{ :style => "background-image: url(#{image_path "#{video.image.url}"})"}
-            %div.tint
-            %div.title-container
-              %div.title-inner
-                %h2= video.title
-        %p.length= video.length
-        %p.date= video.date
-        %p.description= video.description
-
+  %div.container
     = link_to "Add new video", new_video_path
+
+    - @videos.in_groups_of(3, false) do |group|
+      %div.video-row.clearfix
+        - group.each do |video|
+          %div.video-thumb
+            = link_to video do
+              %div.video-image{ :style => "background-image: url(#{image_path "#{video.image.url}"})"}
+                %div.tint
+                %div.title-container
+                  %div.title-inner
+                    %h2= video.title
+            %p.length= video.length
+            %p.date= video.date
+            %p.description= video.description
