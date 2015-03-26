@@ -13,6 +13,7 @@
       = link_to "Delete", video_path(@video), method: :delete, data: { confirm: "Are you sure?" }, :class => "delete"
 
 %div.container
+  %h2 Like the video? Add a comment below.
   %div#comment
     %h2.comment_count= pluralize(@video.comments.count, "Comment")
     - @comments.each do |comment|

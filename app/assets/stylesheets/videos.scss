@@ -102,7 +102,7 @@ img {
 		margin: 20px 0;
 		font-size: .9em;
     font-weight: 700;
-    color: #656C8F;
+    color: #4B5276;
     letter-spacing: 0.02em;
 	}
 
@@ -132,13 +132,10 @@ img {
 .right {
 	width: 35%;
 	float: left;
-	color: #fff;
 		
 	h1 {
-		font-weight: 400;
-	  letter-spacing: 2px;
-	  font-size: 1.8em;
 	  margin: 0 0 30px;
+	  color: #fff;
 	}
 
 	.description {
@@ -149,11 +146,11 @@ img {
 	}
 
 	.edit, .delete {
-		color: #00adef;
+	  color: #00adef;
 	  background: transparent;
-	  padding: 15px 20px 13px;
+	  padding: 15px 20px 16px;
 	  border: 3px solid #00adef;
-	  border-radius: 26px;
+	  border-radius: 30px;
 	  width: 100px;
 	  display: block;
 	  float: left;

@@ -2,9 +2,9 @@
   %div.container
     = link_to "Add new video", new_video_path
 
-    - @videos.in_groups_of(3, false) do |group|
+    - @videos.each_slice(3) do |videos|
       %div.video-row.clearfix
-        - group.each do |video|
+        - videos.each do |video|
           %div.video-thumb
             = link_to video do
               %div.video-image{ :style => "background-image: url(#{image_path "#{video.image.url}"})"}
