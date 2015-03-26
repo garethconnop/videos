@@ -8,9 +8,9 @@ class CommentsController < ApplicationController
     @comment.video_id = @video.id
 
     if @comment.save
-    	redirect_to video_path(@video)
+    	redirect_to video_path(@video, anchor: "comment_#{@comment.id}")
     else
-    	render 'new'
+    	redirect_to video_path(@video), alert: "Unable to save your comment"
     end
   end
 

@@ -18,9 +18,11 @@
     %h2.comment_count= pluralize(@video.comments.count, "Comment")
     - @comments.each do |comment|
       .comment
-        %p.username= comment.user.first_name
-        %p.content= comment.content
-        = link_to "Edit", edit_video_comment_path(comment.video, comment)
-        = link_to "Delete", [comment.video, comment], method: :delete, data: { confirm: "Are you sure?" }
+        = div_for comment do
+          = image_tag comment.user.avatar.url(:thumb), class: "avatar"
+          %p.username= comment.user.first_name
+          %p.content= comment.content
+          = link_to "Edit", edit_video_comment_path(comment.video, comment)
+          = link_to "Delete", [comment.video, comment], method: :delete, data: { confirm: "Are you sure?" }
 
     = render 'comments/form'
