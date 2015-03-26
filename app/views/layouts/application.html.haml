@@ -1,0 +1,67 @@
+!!!
+%html{lang: "en"}
+%head
+  %meta{charset: "utf-8"}
+  %meta{name: "description", content: ""}
+  %meta{name: "viewport", :content => "width=device-width, initial-scale=1"}
+  %title Conditioning Centre Community
+  = stylesheet_link_tag    'application', media: 'all'
+  = javascript_include_tag 'application'
+  = csrf_meta_tags
+
+%body
+  %div.wrapper
+    %header
+      %div.container
+
+        = link_to '', root_path, class: 'logo'
+
+        %a.navicon-button
+          %div.navicon
+
+        %nav
+          %span
+            = link_to 'Discussions', root_path
+          %span
+            = link_to 'Videos', root_path
+          %span
+            = link_to 'Programs', root_path
+          %span
+            - if user_signed_in?
+              %a.clicker.social-icon.icon-chevron-down<
+                = current_user.first_name
+              %div.dropdown
+                %span
+                  = link_to 'Account', edit_user_registration_path
+                %span
+                  = link_to 'Billing', edit_user_registration_path
+                %span
+                  = link_to('Sign Out', destroy_user_session_path, method: :delete)
+            - else
+              %span
+                = link_to "Sign In", new_user_session_path
+    
+
+    - if notice
+      %div.alert-container
+        %p.notice= notice
+    - if alert
+      %div.alert-container
+        %p.alert= alert
+
+    = yield
+
+    %footer
+      %div.container
+        %div.six
+          %p.copyright 
+            Copyright &copy; The Conditioning Centre
+            = Time.now.year
+            <br>
+            Registered in England No.8933965
+        %div.six
+          %div.social-icons
+            %a{ href: "#", class: "social-icon icon-facebook" }
+            %a{ href: "#", class: "social-icon icon-twitter" }
+            %a{ href: "#", class: "social-icon icon-google-plus" }
+            %a{ href: "#", class: "social-icon icon-youtube" }

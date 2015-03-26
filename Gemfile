@@ -13,6 +13,10 @@ gem 'simple_form', '~> 3.1.0'
 gem 'devise', '~> 3.4.1'
 gem 'paperclip', '~> 4.2.1'
 gem 'will_paginate', '~> 3.0.7'
+gem 'html-pipeline', '~> 1.11.0'
+gem 'github-markdown', '~> 0.6.8'
+gem 'sanitize', '~> 3.1.2'
+gem 'neat'
 
 group :development, :test do
   gem 'byebug'
