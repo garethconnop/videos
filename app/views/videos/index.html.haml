@@ -15,3 +15,5 @@
             %p.length= video.length
             %p.date= video.date
             %p.description= video.description
+
+    = will_paginate @videos, previous_label: "Previous", next_label: "Next", inner_window: 1, outer_window: 0
