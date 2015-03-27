@@ -1,10 +1,11 @@
-$primary-color: #5A5AFF;
+$primary-color: #0074EF;
+$secondary-color: #2b2b8f;
 $accent-color: darken($primary-color, 25%);
-$headline-color: #4D5685;
+// $headline-color: #2D2D88;
 $text-color: #999;
 $button-hover: darken($primary-color, 7%);
-$link-color: $primary-color;
-$link-color-hover: darken($link-color, 10%);
+$link-color: $secondary-color;
+// $link-color-hover: darken($link-color, 10%);
 $selection-color: #EEE;
 $duration: .4s;
 $nav-height: 65px;

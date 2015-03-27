@@ -1,17 +1,6 @@
 // Place all the styles related to the Videos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-html, body, p {
-	margin: 0;
-	padding: 0;
-}
-
-
-
-body {
-	font-family: "Lato", sans-serif;
-	font-weight: 400;
-}
 
 a {
 	text-decoration: none;
@@ -30,21 +19,51 @@ img {
   }
 }
 
+.video-header {
+	background: $primary-color;
+	padding: 50px 0;
+	margin: 20px 0 0;
+	text-align: center;
+
+	@media only screen and (min-width: 1025px) {
+		padding: 65px 0 50px;
+	}
+
+	h1 {
+		color: #fff;
+		font-weight: 500;
+	}
+
+	p {
+		margin: 0;
+		color: rgba(255,255,255,.7);
+		font-weight: 500;
+	}
+}
+
 .container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 15px;
+  width: 90%;
 }
 
 .video-index {
 	width: 100%;
-	padding: 0 0 50px;
+	background: #FFF;
+}
+
+.video-row {
+
+	&:last-of-type {
+		margin-bottom: 60px;
+	}
 }
 
 .video-thumb {
   width: 31.111111111111%;
   margin-right: 3.333333333333%;
-  margin-top: 50px;
+  margin-top: 60px;
   float: left;
 
   .video-image, .tint {
@@ -62,7 +81,7 @@ img {
 
   	.tint {
 		  padding-top: 55%; /* 4:3 aspect ratio */
-		  background: rgba(0,173,239, 0.3);
+		  background: rgba(0,116,239, 0.3);
 		}
 
 		.title-container {
@@ -77,7 +96,7 @@ img {
 
 			h2 {
 				margin: -60px 20px 0;
-				font-weight: 400;
+				font-weight: 600;
 	      letter-spacing: 2px;
 	      color: #fff;
 	      white-space: nowrap;
@@ -95,21 +114,25 @@ img {
 		position: absolute;
 	  color: rgba(255,255,255,.7);
 	  margin: -29px 20px;
-	  font-size: .87em;
+	  font-size: 1em;
+	  font-weight: 600;
+	  letter-spacing: .05em;
 	}
 
 	.date {
 		margin: 20px 0;
-		font-size: .9em;
-    font-weight: 700;
-    color: #4B5276;
+		font-size: 1.1em;
+    font-weight: 600;
+    color: #11559E;
     letter-spacing: 0.02em;
 	}
 
 	.description {
-		color: #9398B0;
+		color: #6387AE;
 		letter-spacing: 0.02em;
-		line-height: 1.4;
+		line-height: 1.5;
+		font-size: 1.1em;
+		margin-bottom: 0;
 	}
 }
 
@@ -119,8 +142,13 @@ img {
 
 .video-section {
 	width: 100%;
-	padding: 50px 0;
-	background: #232D60;
+	padding: 50px 0 70px;
+	margin-top: 50px;
+	background: $primary-color;
+
+	@media only screen and (min-width: 1025px) {
+		margin-top: $nav-height;
+	}
 }
 
 .left {
@@ -134,20 +162,34 @@ img {
 	float: left;
 		
 	h1 {
-	  margin: 0 0 30px;
+		font-weight: 600;
+		letter-spacing: 2px;
+	  margin: 0 0 20px;
 	  color: #fff;
 	}
 
 	.description {
-		font-weight: 300;
-    color: rgba(255,255,255,0.8);
+    color: rgba(255,255,255,0.7);
     line-height: 1.8;
-    margin: 0 0 50px;
+    margin: 0 0 20px;
+    font-weight: 500;
+	}
+
+	hr {
+	  width: 20%;
+	  height: 4px;
+	}
+
+	.comment-count {
+		color: rgba(255,255,255,0.7);
+		font-weight: 600;
+		letter-spacing: .05em;
 	}
 
 	.edit, .delete {
 	  color: #00adef;
 	  background: transparent;
+	  margin: 50px 0 0;
 	  padding: 15px 20px 16px;
 	  border: 3px solid #00adef;
 	  border-radius: 30px;

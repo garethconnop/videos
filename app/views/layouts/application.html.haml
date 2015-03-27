@@ -40,7 +40,6 @@
             - else
               %span
                 = link_to "Sign In", new_user_session_path
-    
 
     - if notice
       %div.alert-container
@@ -51,17 +50,17 @@
 
     = yield
 
-    %footer
-      %div.container
-        %div.six
-          %p.copyright 
-            Copyright &copy; The Conditioning Centre
-            = Time.now.year
-            <br>
-            Registered in England No.8933965
-        %div.six
-          %div.social-icons
-            %a{ href: "#", class: "social-icon icon-facebook" }
-            %a{ href: "#", class: "social-icon icon-twitter" }
-            %a{ href: "#", class: "social-icon icon-google-plus" }
-            %a{ href: "#", class: "social-icon icon-youtube" }
+  %footer
+    %div.container
+      %div.six
+        %p.copyright 
+          Copyright &copy; The Conditioning Centre
+          = Time.now.year
+          <br>
+          Registered in England No.8933965
+      %div.six
+        %div.social-icons
+          %a{ href: "#", class: "social-icon icon-facebook" }
+          %a{ href: "#", class: "social-icon icon-twitter" }
+          %a{ href: "#", class: "social-icon icon-google-plus" }
+          %a{ href: "#", class: "social-icon icon-youtube" }

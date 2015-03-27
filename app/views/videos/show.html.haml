@@ -8,21 +8,28 @@
     %div.right
       %h1= @video.title
       %p.description= @video.description
+      %hr.dark-hr
+      %p.comment-count= pluralize(@video.comments.count, "Comment")
 
-      = link_to "Edit", edit_video_path(@video), :class => "edit"
-      = link_to "Delete", video_path(@video), method: :delete, data: { confirm: "Are you sure?" }, :class => "delete"
+      / = link_to "Edit", edit_video_path(@video), :class => "edit"
+      / = link_to "Delete", video_path(@video), method: :delete, data: { confirm: "Are you sure?" }, :class => "delete"
 
-%div.container
-  %h2 Like the video? Add a comment below.
-  %div#comment
-    %h2.comment_count= pluralize(@video.comments.count, "Comment")
-    - @comments.each do |comment|
-      .comment
+%div.container.comment-container
+  %div.nine
+    %div#comment
+      %div.comment-headline
+        %h2 If you have any questions or queries about the video, then add a comment below.
+      - @comments.each do |comment|
+
         = div_for comment do
-          = image_tag comment.user.avatar.url(:thumb), class: "avatar"
-          %p.username= comment.user.first_name
-          %p.content= markdown comment.content
-          = link_to "Edit", edit_video_comment_path(comment.video, comment)
-          = link_to "Delete", [comment.video, comment], method: :delete, data: { confirm: "Are you sure?" }
+          %div.user-image
+            = image_tag comment.user.avatar.url(:thumb), class: "avatar"
+          %div.user-comment
+            %p.username= comment.user.first_name
+            = markdown comment.content
+            %div.deledit
+              = link_to "Edit", edit_video_comment_path(comment.video, comment), class: "edit"
+              = link_to "Delete", [comment.video, comment], method: :delete, data: { confirm: "Are you sure?" }, class: "delete"
 
-    = render 'comments/form'
+        %hr
+      = render 'comments/form'

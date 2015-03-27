@@ -1,5 +1,6 @@
 footer {
-  @include linear-gradient(to right, $primary-color, $accent-color);
+  // @include linear-gradient(to right, $primary-color, $accent-color);
+  background: $primary-color;
   display: table-footer-group; // For sticky footer
   height: 1px; // For sticky footer
 
@@ -41,7 +42,7 @@ footer {
 
       @media only screen and (min-width: 496px) {
         float: right;
-        margin: 12px 0 0 0;
+        margin: 36px 0 0 0;
       }
 
       .social-icon {

@@ -1,6 +1,11 @@
+%div.video-header
+  %h1 Videos
+  %p A collection of videos, covering Exercise, Nutrition &amp; Mobilty.
+
 %section.video-index
   %div.container
-    = link_to "Add new video", new_video_path
+
+    / = link_to "Add new video", new_video_path
 
     - @videos.each_slice(3) do |videos|
       %div.video-row.clearfix
